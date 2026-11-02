@@ -39,11 +39,4 @@ function render(){
  <div class="card"><span class="tag">${c}</span><span class="tag">${b}</span><span class="tag">${subject}</span>
  <h2>🎥 Sample Lecture: ${subject}</h2>
  <p><b>Demo Chapter:</b> ${c==="Class 9"?"गति (Motion)":c==="Class 10"?"विद्युत (Electricity)":c==="Class 11"?"मात्रक एवं मापन":"विलयन (Solutions)"}</p>
- <p class="small">यह Study Hub का demo lecture card है। वास्तविक verified/free या original lecture बाद में जोड़ा जाएगा।</p>
- <a class="btn" href="https://www.youtube.com/results?search_query=class+${c.replace("Class ","")}+${encodeURIComponent(subject)}+lecture" target="_blank">▶ Watch Lecture</a>
- </div>
- <div class="card"><b>आगे के sections</b><p>📝 Handwritten Notes &nbsp; • &nbsp; 📄 Previous Papers &nbsp; • &nbsp; 📘 DPP &nbsp; • &nbsp; 🧪 Test Series</p></div>`;
-}
-document.getElementById('cls').onchange=render; document.getElementById('board').onchange=render; render();
-</script>
-</body></html>
+ <p class="small">यह Study Hub का demo lecture card है। वास्तविक verified/free या original lecture बाद में जोड़ा
