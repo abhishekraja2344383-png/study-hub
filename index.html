@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Study Hub — Class 9–12 Demo</title>
+<style>
+body{font-family:Arial,sans-serif;margin:0;background:#f5f7fb;color:#172033}
+header{background:#1769e0;color:white;padding:22px 18px}
+h1{margin:0 0 6px}.wrap{max-width:900px;margin:auto;padding:18px}
+select,button{padding:12px;border-radius:10px;border:1px solid #ccd4e0;font-size:16px}
+.controls{display:flex;gap:10px;flex-wrap:wrap;margin:15px 0}
+.card{background:white;border-radius:16px;padding:18px;margin:12px 0;box-shadow:0 3px 14px #0001}
+.tag{display:inline-block;background:#eef4ff;padding:6px 9px;border-radius:20px;margin:3px;font-size:13px}
+a.btn{display:inline-block;background:#1769e0;color:white;text-decoration:none;padding:11px 16px;border-radius:10px;margin-top:10px}
+.small{color:#667085;font-size:14px}
+</style>
+</head>
+<body>
+<header><div class="wrap"><h1>📚 Study Hub</h1><div>Classes 9–12 • State Boards • Lectures • Notes • DPP • Tests</div></div></header>
+<main class="wrap">
+<div class="controls">
+<select id="cls"><option>Class 9</option><option>Class 10</option><option>Class 11</option><option>Class 12</option></select>
+<select id="board"><option>UP Board</option><option>MP Board</option><option>Bihar Board</option><option>Jharkhand Board</option><option>CBSE</option><option>Rajasthan Board</option><option>Maharashtra Board</option></select>
+</div>
+<div id="content"></div>
+</main>
+<script>
+const data={
+"Class 9":["विज्ञान","गणित","हिंदी","अंग्रेज़ी"],
+"Class 10":["विज्ञान","गणित","हिंदी","अंग्रेज़ी"],
+"Class 11":["भौतिक विज्ञान","रसायन विज्ञान","गणित","जीव विज्ञान"],
+"Class 12":["भौतिक विज्ञान","रसायन विज्ञान","गणित","जीव विज्ञान"]
+};
+function render(){
+ let c=document.getElementById('cls').value,b=document.getElementById('board').value;
+ let subject=data[c][0];
+ document.getElementById('content').innerHTML=`
+ <div class="card"><span class="tag">${c}</span><span class="tag">${b}</span><span class="tag">${subject}</span>
+ <h2>🎥 Sample Lecture: ${subject}</h2>
+ <p><b>Demo Chapter:</b> ${c==="Class 9"?"गति (Motion)":c==="Class 10"?"विद्युत (Electricity)":c==="Class 11"?"मात्रक एवं मापन":"विलयन (Solutions)"}</p>
+ <p class="small">यह Study Hub का demo lecture card है। वास्तविक verified/free या original lecture बाद में जोड़ा जाएगा।</p>
+ <a class="btn" href="https://www.youtube.com/results?search_query=class+${c.replace("Class ","")}+${encodeURIComponent(subject)}+lecture" target="_blank">▶ Watch Lecture</a>
+ </div>
+ <div class="card"><b>आगे के sections</b><p>📝 Handwritten Notes &nbsp; • &nbsp; 📄 Previous Papers &nbsp; • &nbsp; 📘 DPP &nbsp; • &nbsp; 🧪 Test Series</p></div>`;
+}
+document.getElementById('cls').onchange=render; document.getElementById('board').onchange=render; render();
+</script>
+</body></html>
